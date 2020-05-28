@@ -1,17 +1,30 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-grid text-center no-margin no-padding>
+      <ion-row>
+        <ion-col col-2><ion-icon name="person"></ion-icon></ion-col>
+        <ion-col col-8>
+          <ion-title>Mello</ion-title>
+        </ion-col>
+        <ion-col col-2><ion-icon name="notifications"></ion-icon></ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+  <div class="spotlight">
+    <ion-slides (ionSlideDidChange)="slideChanged()">
+      <ion-slide>
+        <h4>Slide 1</h4>
+      </ion-slide>
+      <ion-slide>
+        <h4>Slide 2</h4>
+      </ion-slide>
+      <ion-slide>
+        <h4>Slide 3</h4>
+      </ion-slide>
+    </ion-slides>
+  </div>
+  
 </ion-content>
