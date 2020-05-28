@@ -12,19 +12,12 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding>  
   <div class="spotlight">
-    <ion-slides (ionSlideDidChange)="slideChanged()">
-      <ion-slide>
-        <h4>Slide 1</h4>
-      </ion-slide>
-      <ion-slide>
-        <h4>Slide 2</h4>
-      </ion-slide>
-      <ion-slide>
-        <h4>Slide 3</h4>
+    <ion-slides (ionSlideDidChange)="slideChanged()" no-margin no-padding>
+      <ion-slide *ngFor="let movie of popular_movies" >
+        <img [attr.src] = "movie.poster_path">
       </ion-slide>
     </ion-slides>
   </div>
-  
 </ion-content>

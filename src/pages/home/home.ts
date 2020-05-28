@@ -1,6 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, Slides } from 'ionic-angular';
 
+import { MovieProvider } from '../../providers/movie/movie';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -8,7 +10,9 @@ import { NavController, Slides } from 'ionic-angular';
 export class HomePage {
   @ViewChild(Slides) slides: Slides;
 
-  constructor(public navCtrl: NavController) {
+  popular_movies: any;
+
+  constructor(public navCtrl: NavController, private movieProvider: MovieProvider) {
 
   }
 
@@ -16,7 +20,12 @@ export class HomePage {
     console.log(this.slides.controlBy);
   }
 
-  ionViewDidEnter() {
-    console.log('Home ionViewDidEnter');
+  ionViewWillEnter() {
+    this.movieProvider.getPopular().subscribe(response => {
+      this.popular_movies = response.results;
+      this.popular_movies.forEach(movie => {
+        movie.poster_path = "https://image.tmdb.org/t/p/w500" + movie.poster_path; 
+      });
+    });
   }
 }

@@ -1,4 +1,8 @@
 page-home {
+    padding: 0;
+    border: 0;
+    margin: 0;
+    
     ion-title {
         font-family: 'Permanent Marker', cursive;
     }
@@ -13,9 +17,5 @@ page-home {
 
     ion-content {
         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    }
-
-    .spotlight {
-        height: 20vh;
     }
 }
